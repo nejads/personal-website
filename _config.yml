@@ -1,0 +1,21 @@
+title: Soroush's personal website
+url: "www.soroush.se"
+twitter_username: soroush_se
+github_username: nejads
+
+# Build settings
+theme: jekyll-theme-console
+header_pages:
+  - index.md
+  - contact.md
+  - about.md
+
+style: dark
+listen_for_clients_preferred_style: true
+
+footer: '<a href="https://twitter.com/sorosh_se">@sorosh_se</a>'
+
+google_analytics: UA-170335094-1
+
+plugins:
+  - jekyll-feed
