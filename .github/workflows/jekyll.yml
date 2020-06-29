@@ -1,0 +1,27 @@
+name: Jekyll site CI and Deploy using Surge
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build using Jekyll and Deploy static site using Surge
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build --future"
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploying to surge
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install surge and fire deployment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 8
+      - run: npm install -g surge
+      - run: surge {{ github.workspace }}/_site ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge {{ github.workspace }}/_site ${{ secrets.SURGE_DOMAIN_2 }} --token ${{ secrets.SURGE_TOKEN }}
