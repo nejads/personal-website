@@ -24,4 +24,4 @@ jobs:
           node-version: 8
       - run: npm install -g surge
       - run: surge {{ github.workspace }}/_site ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-      - run: surge {{ github.workspace }}/_site ${{ secrets.SURGE_DOMAIN_2 }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge {{ github.workspace }}/_site ${{ secrets.SURGE_DOMAIN2 }} --token ${{ secrets.SURGE_TOKEN }}
