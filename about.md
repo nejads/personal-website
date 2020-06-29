@@ -11,4 +11,4 @@ Senior software engineer and application security specialist.
 * 2012-2017 [Computer Systems and Networks](http://www.chalmers.se/en/education/programmes/masters-info/Pages/Computer-systems-and-networks.aspx) and in particular [security specialization](http://www.cse.chalmers.se/edu/master/secspec/) at Chalmers University of Technology.
 
 ## Hobbies
-In personal life, [cooking italian dishes](https://www.youtube.com/watch?v=6Fsd_LpwmFU), [baking sourdough bread](https://www.youtube.com/watch?v=bSYdABrPrtM), and [photography](500px.com/nejads) are my hobbies. I use these mediums to connect to people.
+In personal life, [cooking italian dishes](https://www.youtube.com/watch?v=6Fsd_LpwmFU), [baking sourdough bread](https://www.youtube.com/watch?v=bSYdABrPrtM), and [photography](https://500px.com/galaxydal) are my hobbies. I use these mediums to connect to people.
