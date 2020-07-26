@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build using Jekyll and Deploy static site using Surge
     steps:
-    - name: Build the site in the jekyll/builder container
     - uses: actions/checkout@v2
     - uses: actions/cache@v1
       with:
@@ -16,6 +15,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-gems-
     - uses:  lemonarc/jekyll-action@1.0.0
+    - name: Build the site in the jekyll/builder container
   deploy:
     runs-on: ubuntu-latest
     name: Deploying to surge
