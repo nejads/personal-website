@@ -7,12 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Build using Jekyll and Deploy static site using Surge
     steps:
-    - uses: actions/checkout@v2
     - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll && jekyll build"
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+    - uses:  lemonarc/jekyll-action@1.0.0
   deploy:
     runs-on: ubuntu-latest
     name: Deploying to surge
@@ -24,5 +27,5 @@ jobs:
         with:
           node-version: 8
       - run: npm install -g surge
-      - run: surge /srv/jekyll/_site ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
-      - run: surge /srv/jekyll/_site ${{ secrets.SURGE_DOMAIN2 }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge ./_site ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge ./_site ${{ secrets.SURGE_DOMAIN2 }} --token ${{ secrets.SURGE_TOKEN }}
