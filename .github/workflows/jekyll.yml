@@ -16,6 +16,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploying to surge
+    needs: build
     steps:
       - uses: actions/checkout@v1
       - name: Install surge and fire deployment
